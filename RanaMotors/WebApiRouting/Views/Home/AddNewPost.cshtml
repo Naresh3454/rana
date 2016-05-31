@@ -1,0 +1,54 @@
+﻿@using BussinessLogicLibrary.Entities
+@model AdvertiseCarEntity
+@{
+    ViewBag.Title = "AddNewPost";
+}
+
+<h2>Post an add</h2>
+<div class="row">
+    <div class="col-md-8">
+        <section id="loginForm">
+            @using (Html.BeginForm("AddNewPost", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <h4>Use a local account to log in.</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(m => m.CompanyName, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.CompanyName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.CompanyName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Model, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Model, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Model, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.FuelType, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.FuelType, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.FuelType, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.ManufacturedYear, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.ManufacturedYear, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.ManufacturedYear, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Post Now" class="btn btn-default" />
+                    </div>
+                </div>
+            }
+        </section>
+    </div>
+</div>
+
